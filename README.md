@@ -26,9 +26,18 @@ cd skillers-share && bash install.sh
 
 ## 함께 쓰는 스킬
 
-`훅카피` · `크리틱디렉터` · `spec-guard` 가 **동봉되어 있다.** `install.sh` 가 같이 설치하므로 따로 받을 필요가 없다.
+`훅카피` · `크리틱디렉터` · `spec-guard` 도 `install.sh` 가 같이 설치한다. 따로 받을 필요가 없다.
 
-이미 설치돼 있으면 `이름.backup-날짜` 로 백업한 뒤 교체한다.
+- **항상 최신** — 설치할 때 원본 저장소에서 최신을 받아온다. 네트워크가 없으면 동봉된 `bundled/` 스냅샷으로 떨어진다
+- **이미 있으면 건드리지 않는다** — 쓰던 스킬이 그대로 남는다
+
+최신으로 올리고 싶으면:
+
+```bash
+bash install.sh --force
+```
+
+이때만 기존 것을 `이름.backup-날짜` 로 백업하고 교체한다.
 
 원본: [webdeck](https://github.com/Koo-bon/webdeck) · [spec-guard](https://github.com/Koo-bon/spec-guard)
 

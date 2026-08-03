@@ -45,7 +45,7 @@ description: 스폰지클럽 이기적 공유회(1시간) 발표를 주제 선�
 | `크리틱디렉터` | ⑧ 후킹 검수 (`visual-inspection.md` 렌즈) |
 | `spec-guard` | ③ 락 생성 · ⑧ 락 대조 |
 
-원본은 `github.com/Koo-bon/webdeck` 과 `github.com/Koo-bon/spec-guard` 다. 동봉본은 스냅샷이므로, 원본이 크게 바뀌면 `bundled/` 를 갱신한다.
+`install.sh` 는 설치할 때마다 원본(`github.com/Koo-bon/webdeck`, `github.com/Koo-bon/spec-guard`)에서 **최신을 받아온다.** 네트워크가 없으면 `bundled/` 동봉본으로 떨어진다. 이미 설치된 스킬은 건드리지 않으며, 교체하려면 `bash install.sh --force` 를 쓴다.
 
 webdeck 덱 엔진(`generate_deck.py`·`index.html`)은 동봉하지 않는다. `install.sh` 가 원본에서 받아오므로 항상 최신이고 수정 위험이 없다.
 
