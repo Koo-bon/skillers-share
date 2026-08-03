@@ -1,0 +1,121 @@
+#sd-timer {
+  position: fixed; left: 16px; bottom: 16px; z-index: 99998;
+  font: 500 13px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: rgba(0,0,0,.72); color: #fff;
+  padding: 8px 12px; border-radius: 8px;
+  display: none; pointer-events: none;
+}
+#sd-timer.on { display: block; }
+/* 발표자 노트가 열리면 타이머를 그 위로 올린다. 안 그러면 노트 패널에 완전히 가린다. */
+body.sd-notes-on #sd-timer { bottom: calc(42vh + 16px); }
+#sd-timer .seg { opacity: .7; }
+#sd-timer.over { background: rgba(180,20,20,.85); }
+
+#sd-notes {
+  position: fixed; inset: auto 0 0 0; z-index: 99999;
+  max-height: 42vh; overflow: auto;
+  background: rgba(12,12,12,.95); color: #eee;
+  font: 400 15px/1.7 system-ui, -apple-system, sans-serif;
+  padding: 18px 22px 22px; border-top: 1px solid rgba(255,255,255,.18);
+  display: none; word-break: keep-all;
+}
+#sd-notes.on { display: block; }
+#sd-notes h4 {
+  margin: 0 0 10px; font: 500 13px/1 ui-monospace, monospace;
+  color: #9a9a9a; letter-spacing: .04em;
+}
+#sd-notes pre {
+  margin: 0; white-space: pre-wrap; font: inherit;
+}
+
+/* ============================================================
+   테마별 폰트 · 타이포 스케일 (references/themes.md 기준)
+   웹폰트 로드 실패 시에도 시스템 폰트로 자연스럽게 폴백한다.
+   ============================================================ */
+
+@font-face {
+  font-family: 'Paperlogy9Black';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-9Black.woff2') format('woff2');
+  font-weight: 900;
+  font-display: swap;
+}
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+  /* 기본값: Pretendard, 폰트 로드 실패 시 시스템 산세리프로 폴백 */
+  --sd-font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+  --sd-font-head: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+  --sd-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* 타이포 스케일 (1920×1080 기준, references/themes.md 표지/내지 규정과 일치) */
+  /* 1920×1080에서 각각 200 / 84 / 26 / 14px. 뷰포트 비례라 작은 화면에서도 안 터진다.
+     표지와 캡션이 10배 이상 벌어지는 대비는 어느 크기에서도 유지된다. */
+  --sd-h-cover: clamp(56px, 10.4vw, 240px);
+  --sd-h-body: clamp(32px, 4.4vw, 96px);
+  --sd-sub: clamp(15px, 1.35vw, 28px);
+  --sd-cap: clamp(11px, 0.73vw, 15px);
+}
+
+[data-sd-theme] { word-break: keep-all; }
+
+/* 미니멀 B&W — Pretendard 단일, 굵기(900/300)로 위계 */
+html[data-sd-theme="minimal-bw"], body[data-sd-theme="minimal-bw"] {
+  --sd-font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+  --sd-font-head: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+}
+
+/* 볼드 컬러 — Paperlogy 9 Black(헤드라인) + Pretendard(본문) */
+html[data-sd-theme="bold-color"], body[data-sd-theme="bold-color"] {
+  --sd-font-head: 'Paperlogy9Black', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  --sd-font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+}
+
+/* 친근·소프트 — Gowun Dodum(헤드라인) + Pretendard(본문) */
+html[data-sd-theme="soft"], body[data-sd-theme="soft"] {
+  --sd-font-head: 'Gowun Dodum', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  --sd-font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+}
+
+/* 에디토리얼 — Gowun Batang(헤드라인, 세리프) + Pretendard(캡션) */
+html[data-sd-theme="editorial"], body[data-sd-theme="editorial"] {
+  --sd-font-head: 'Gowun Batang', Georgia, serif;
+  --sd-font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+}
+
+/* 다크 테크 — JetBrains Mono(키커·라벨·코드) + Pretendard(헤드라인·본문) */
+html[data-sd-theme="dark-tech"], body[data-sd-theme="dark-tech"] {
+  --sd-font-head: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+  --sd-font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+  --sd-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* 표지 — 첫 슬라이드는 타입(cover/core)과 무관하게 표지 스케일을 쓴다.
+   내지 규칙을 넘어서는 크기가 표지의 요건이다(references/themes.md "표지"). */
+[data-sd-theme] h1.cover,
+[data-sd-theme] .cover h1,
+[data-sd-theme] .slide:first-child .core,
+[data-sd-theme] .slide:first-child h1 {
+  font-family: var(--sd-font-head);
+  font-size: var(--sd-h-cover);
+  font-weight: 800;
+  line-height: .94;
+  letter-spacing: -.03em;
+}
+
+/* 내지 */
+[data-sd-theme] .slidetitle,
+[data-sd-theme] h1.core,
+[data-sd-theme] .core,
+[data-sd-theme] .sec-title { font-family: var(--sd-font-head); font-size: var(--sd-h-body); font-weight: 700; }
+
+[data-sd-theme] .sub,
+[data-sd-theme] .sec-sub { font-family: var(--sd-font-body); font-size: var(--sd-sub); font-weight: 400; }
+
+[data-sd-theme] .kicker,
+[data-sd-theme] .caption,
+[data-sd-theme] .sd-cap { font-family: var(--sd-font-body); font-size: var(--sd-cap); font-weight: 500; letter-spacing: .08em; }
+
+[data-sd-theme="dark-tech"] .kicker,
+[data-sd-theme="dark-tech"] .caption,
+[data-sd-theme="dark-tech"] .sd-cap { font-family: var(--sd-font-mono); }
