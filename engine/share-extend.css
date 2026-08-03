@@ -146,3 +146,158 @@ html[data-sd-theme="dark-tech"], body[data-sd-theme="dark-tech"] {
 [data-sd-theme="dark-tech"] .kicker,
 [data-sd-theme="dark-tech"] .caption,
 [data-sd-theme="dark-tech"] .sd-cap { font-family: var(--sd-font-mono); }
+
+/* ─────────────────────────────────────────────
+   고감도 레이어 — webdeck 기본 조판을 덮는다.
+   기본 조판은 전부 가운데 정렬이라 그대로 두면 일반 PPT처럼 보인다.
+   references/themes.md "절대 금지 — PPT 티" 를 CSS로 강제한다.
+   ───────────────────────────────────────────── */
+
+/* 1. 내지도 좌측 정렬. 가운데 정렬은 템플릿의 기본값이다. */
+[data-sd-theme] .slide:not(:first-child) {
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 7vw;
+  padding-right: 7vw;
+}
+[data-sd-theme] .slide:not(:first-child) .core,
+[data-sd-theme] .slide:not(:first-child) .slidetitle,
+[data-sd-theme] .slide:not(:first-child) .sub,
+[data-sd-theme] .slide:not(:first-child) .kicker { text-align: left; }
+
+/* 2. 키커를 모노 라벨로. 대문자 자간을 벌려 지면 라벨처럼 만든다. */
+[data-sd-theme] .kicker {
+  font-family: var(--sd-font-mono);
+  letter-spacing: .18em;
+  opacity: .62;
+}
+/* 키커 앞 짧은 선 — 라벨에 축을 준다 */
+[data-sd-theme] .kicker::before {
+  content: "";
+  display: inline-block;
+  width: 2.2em; height: 1px;
+  background: currentColor;
+  vertical-align: middle;
+  margin-right: .9em;
+  opacity: .5;
+}
+
+/* 3. 카드에서 박스를 없앤다. 테두리 사각형 나열이 PPT 티의 핵심이다.
+      좌측 헤어라인 + 큰 여백으로 대체한다. */
+[data-sd-theme] .card,
+[data-sd-theme] .cards .item,
+[data-sd-theme] .cards > div > div {
+  background: transparent !important;
+  border: 0 !important;
+  border-left: 1px solid currentColor !important;
+  border-radius: 0 !important;
+  padding-left: 1.4rem !important;
+  opacity: 1;
+}
+[data-sd-theme] .card .tag,
+[data-sd-theme] .cards .tag {
+  font-family: var(--sd-font-mono);
+  letter-spacing: .12em;
+  opacity: .55;
+}
+
+/* 4. 숫자는 초대형 모노. 여기가 시선을 먹어야 한다. */
+[data-sd-theme] .stat-trio .num,
+[data-sd-theme] .num {
+  font-family: var(--sd-font-mono);
+  font-size: clamp(40px, 6.2vw, 132px);
+  font-weight: 700;
+  letter-spacing: -.05em;
+  line-height: .9;
+}
+[data-sd-theme] .stat-trio .label,
+[data-sd-theme] .label {
+  font-family: var(--sd-font-body);
+  font-size: var(--sd-cap);
+  letter-spacing: .04em;
+  opacity: .6;
+}
+
+/* 5. 단락 구분 장 — 번호를 거대하게, 좌측으로. */
+[data-sd-theme] .sec-num {
+  font-family: var(--sd-font-mono);
+  font-size: clamp(72px, 13vw, 260px);
+  font-weight: 700;
+  line-height: .82;
+  letter-spacing: -.06em;
+  opacity: .22;
+}
+[data-sd-theme] .sec-wrap { align-items: flex-start; text-align: left; }
+[data-sd-theme] .sec-title { letter-spacing: -.03em; }
+
+/* 6. 다크 테크 — 배경에 미세한 격자. 단색 평면의 허전함을 메운다.
+      그라데이션이 아니라 1px 선이라 PPT 티가 나지 않는다. */
+[data-sd-theme="dark-tech"] .slide::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right, currentColor 1px, transparent 1px),
+    linear-gradient(to bottom, currentColor 1px, transparent 1px);
+  background-size: 7vw 7vw;
+  opacity: .035;
+  pointer-events: none;
+}
+
+/* 7. 본문 헤드라인 자간을 조인다. 한글 대형 타이포는 기본 자간이 넓어 흐리멍덩해진다. */
+[data-sd-theme] .slidetitle,
+[data-sd-theme] .slide:not(:first-child) .core {
+  letter-spacing: -.035em;
+  line-height: 1.02;
+}
+
+/* 8. 부연은 확실히 죽인다. 위계가 흐리면 전부 같은 말처럼 들린다. */
+[data-sd-theme] .sub { opacity: .55; max-width: 52ch; }
+
+/* 9. 흐름도·플로우가 화면 가운데 조막만하게 뜨는 것을 막는다.
+      "중앙에 놓인 작은 요소"는 PPT 티 목록의 첫 항목이다. */
+[data-sd-theme] .hflow,
+[data-sd-theme] .flow,
+[data-sd-theme] .harnessflow,
+[data-sd-theme] .steps {
+  width: 100%;
+  justify-content: space-between;
+  gap: clamp(8px, 1vw, 20px);
+}
+[data-sd-theme] .hflow > *,
+[data-sd-theme] .flow > *,
+[data-sd-theme] .steps > * { flex: 1 1 0; min-width: 0; }
+
+/* 흐름도 박스의 테두리 사각형을 벗긴다 — 상단 선 + 여백으로.
+   실제 클래스명은 hf-stage / hf-gate / hf-sname / hf-stool / hf-gname / hf-gnote 다. */
+[data-sd-theme] .hf-stage,
+[data-sd-theme] .hf-gate {
+  border-radius: 0 !important;
+  border: 0 !important;
+  border-top: 2px solid currentColor !important;
+  background: transparent !important;
+  padding: .9rem .2rem 0 !important;
+  text-align: left !important;
+  box-shadow: none !important;
+}
+[data-sd-theme] .hf-gate { border-top-style: dashed !important; }
+[data-sd-theme] .hf-sname,
+[data-sd-theme] .hf-gname {
+  font-size: clamp(14px, 1.45vw, 26px) !important;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+[data-sd-theme] .hf-stool,
+[data-sd-theme] .hf-gnote {
+  font-family: var(--sd-font-mono);
+  font-size: var(--sd-cap) !important;
+  opacity: .6;
+}
+/* 화살표는 지운다. 상단 선이 이미 연속을 보여준다 */
+[data-sd-theme] .hf-arw { display: none !important; }
+[data-sd-theme] .hflow { align-items: stretch; }
+
+/* 10. 슬라이드 본문 블록이 세로 가운데에 몰리지 않게 — 위에서부터 쌓는다 */
+[data-sd-theme] .slide:not(:first-child) > * { width: 100%; }
+
+/* 11. 격자는 더 옅게. 보이면 안 되고 느껴져야 한다 */
+[data-sd-theme="dark-tech"] .slide::before { opacity: .022; }
