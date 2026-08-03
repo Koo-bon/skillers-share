@@ -29,9 +29,12 @@ else
   ok "플레이스홀더 없음"
 fi
 
-echo "[4] 복사 금지 스킬"
-for d in 훅카피 크리틱디렉터 spec-guard webdeck proposal-lite; do
-  [ -d "$d" ] && err "$d 는 복사하지 않고 호출해야 함" || ok "$d 미복사"
+echo "[4] 동봉 스킬"
+for d in 훅카피 크리틱디렉터 spec-guard; do
+  [ -f "bundled/$d/SKILL.md" ] && ok "bundled/$d" || err "bundled/$d/SKILL.md 없음"
+done
+for d in webdeck proposal-lite; do
+  [ -d "$d" ] && err "$d 는 동봉하지 않는다 (엔진은 install.sh 가 받는다)" || ok "$d 미동봉"
 done
 
 echo "[5] webdeck 원본 무수정"

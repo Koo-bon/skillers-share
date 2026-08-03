@@ -24,14 +24,13 @@ cd skillers-share && bash install.sh
 
 `install.sh` 가 webdeck 엔진을 자동으로 내려받는다.
 
-## 함께 필요한 스킬
+## 함께 쓰는 스킬
 
-| 스킬 | 출처 |
-|---|---|
-| `훅카피` · `크리틱디렉터` | https://github.com/Koo-bon/webdeck |
-| `spec-guard` | https://github.com/Koo-bon/spec-guard |
+`훅카피` · `크리틱디렉터` · `spec-guard` 가 **동봉되어 있다.** `install.sh` 가 같이 설치하므로 따로 받을 필요가 없다.
 
-이 스킬들은 **복사하지 않고 호출**한다. webdeck 번들을 이미 설치했다면 그대로 쓰인다.
+이미 설치돼 있으면 `이름.backup-날짜` 로 백업한 뒤 교체한다.
+
+원본: [webdeck](https://github.com/Koo-bon/webdeck) · [spec-guard](https://github.com/Koo-bon/spec-guard)
 
 ## 쓰는 법
 
@@ -63,7 +62,8 @@ references/
 engine/
   share-extend.css    발표자 노트 · 타이머 · 테마 폰트/타이포
   share-extend.js
-  (webdeck 원본은 install.sh 가 내려받는다)
+  (webdeck 덱 엔진은 install.sh 가 내려받는다)
+bundled/              동봉 스킬 — 훅카피 · 크리틱디렉터 · spec-guard
 install.sh            설치
 verify.sh             번들 구조 검증
 ```
