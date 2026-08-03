@@ -348,3 +348,22 @@ html[data-sd-theme="dark-tech"], body[data-sd-theme="dark-tech"] {
 [data-sd-theme="dark-tech"] .slide::before {
   opacity: .05;
 }
+
+/* ─────────────────────────────────────────────
+   밝은 테마 보정 — webdeck 슬라이드는 자체 다크 배경을 갖고 있어
+   theme.bg 가 밝아도 어둡게 덮인다. 밝은 테마 2종을 살린다.
+   ───────────────────────────────────────────── */
+[data-sd-theme="editorial"] .slide,
+[data-sd-theme="soft"] .slide {
+  background: var(--sd-light-bg) !important;
+  background-image: none !important;
+  color: var(--sd-light-ink) !important;
+}
+[data-sd-theme="editorial"] { --sd-light-bg: #EFEDE8; --sd-light-ink: #1A1A18; }
+[data-sd-theme="soft"]      { --sd-light-bg: #F4F1EA; --sd-light-ink: #23201C; }
+
+/* 밝은 테마에선 격자·프레임을 더 옅게. 어두운 선은 밝은 지면에서 튄다 */
+[data-sd-theme="editorial"] .slide::before,
+[data-sd-theme="soft"] .slide::before { opacity: .045; }
+[data-sd-theme="editorial"] .slide::after,
+[data-sd-theme="soft"] .slide::after { opacity: .1; }
