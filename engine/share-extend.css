@@ -301,3 +301,50 @@ html[data-sd-theme="dark-tech"], body[data-sd-theme="dark-tech"] {
 
 /* 11. 격자는 더 옅게. 보이면 안 되고 느껴져야 한다 */
 [data-sd-theme="dark-tech"] .slide::before { opacity: .022; }
+
+/* ─────────────────────────────────────────────
+   레퍼런스 감도 — Behance 「©BEAR/SQUAD」(Egor Nazarov) 에서 추출.
+   순수 검정 + 단일 액센트 + 넘버링 접두사 + 헤어라인 + 마이크로 라벨.
+   ───────────────────────────────────────────── */
+
+/* R1. 넘버링 접두사 — 카드 태그를 /01 형태로. 인상을 가장 크게 바꾸는 한 요소. */
+[data-sd-theme="dark-tech"] .tag::before {
+  content: "/";
+  opacity: .55;
+  margin-right: .15em;
+}
+[data-sd-theme="dark-tech"] .tag {
+  font-family: var(--sd-font-mono);
+  letter-spacing: .1em;
+}
+
+/* R2. 헤어라인 프레임 — 화면 안쪽에 실 같은 사각형 하나. 두꺼우면 PPT가 된다. */
+[data-sd-theme="dark-tech"] .slide::after {
+  content: "";
+  position: absolute;
+  inset: 3.2vh 3.2vw;
+  border: 1px solid currentColor;
+  opacity: .13;
+  pointer-events: none;
+}
+
+/* R3. 마이크로 모노 라벨 — 우상단에 회차 정보. 정보 밀도가 감도를 만든다. */
+[data-sd-theme="dark-tech"] .slide > .kicker {
+  position: relative;
+  z-index: 1;
+}
+[data-sd-theme="dark-tech"] .slide:not(:first-child)::before {
+  /* 격자 위에 라벨을 얹는다 */
+  content: "";
+}
+
+/* R4. 단일 색 — 본문 글자도 액센트 색으로. 흰 글자를 섞으면 평범해진다.
+       webdeck 의 .ac(강조) 는 반대로 밝게 빼서 대비를 만든다. */
+[data-sd-theme="dark-tech"] .ac {
+  color: #fff !important;
+}
+
+/* R5. 격자를 액센트 색으로. 검정 위 붉은 격자가 이 레퍼런스의 바닥 질감이다. */
+[data-sd-theme="dark-tech"] .slide::before {
+  opacity: .05;
+}
