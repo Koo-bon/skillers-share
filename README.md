@@ -17,12 +17,31 @@
 
 ## 설치
 
+### 먼저 확인하세요
+
+맥은 `git` 빼고 전부 기본 설치돼 있습니다. 터미널을 열고 아래를 붙여넣어 확인하세요.
+
+```bash
+for c in git curl tar python3; do command -v $c >/dev/null && echo "OK  $c" || echo "없음 $c"; done
+```
+
+- `git` 이 없으면 → 맥에서는 `xcode-select --install` 로 설치됩니다 (몇 분 걸립니다)
+- 나머지가 없으면 → 흔한 경우가 아닙니다. 채널에 물어보세요
+- **터미널을 처음 여신다면** → `Command + 스페이스` 누르고 `터미널` 입력
+
+### 설치
+
 ```bash
 git clone https://github.com/Koo-bon/skillers-share.git
 cd skillers-share && bash install.sh
 ```
 
-`install.sh` 가 webdeck 엔진을 자동으로 내려받는다.
+`install.sh` 가 하는 일:
+1. `공유회-OS` 를 `~/.claude/skills/` 에 복사
+2. webdeck 덱 엔진 4개 파일을 `github.com/Koo-bon/webdeck` 에서 다운로드
+3. 함께 쓰는 스킬 3종을 원본에서 최신으로 설치 (이미 있으면 건드리지 않음)
+
+인터넷이 없으면 2번이 실패하고, 3번은 동봉본으로 진행됩니다.
 
 ## 함께 쓰는 스킬
 
