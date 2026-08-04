@@ -187,7 +187,7 @@ bash engine/build-deck.sh <brief.json> <출력폴더> <테마> [notes.json]
 
 테마 값: `minimal-bw` `bold-color` `soft` `editorial` `dark-tech`
 
-**주제에 맞는 특수 슬라이드 타입을 1~3장 넣는다.** `references/themes.md` 의 "새 슬라이드 무기 — 주제별로" 표를 본다 — 자동화 발표면 `orchrun`·`harnessflow`, 제품 발표면 `producthero`, 전후 비교면 `feature`+`ba`/`flip`. 무난한 카드만 쓰면 PPT 티가 난다. (표지 시안 예시: `design-concepts/04-새무기-표지-4종.html`)
+**주제에 맞는 특수 슬라이드 타입을 1~3장 넣는다.** `references/themes.md` 의 "새 슬라이드 무기 — 주제별로" 표를 본다 — 자동화 발표면 `orchrun`·`harnessflow`, 제품 발표면 `producthero`, 전후 비교면 `feature`+`ba`/`flip`. 무난한 카드만 쓰면 PPT 티가 난다. (표지 시안 예시: `design-concepts/04-새무기-표지-6종.html`)
 
 **손으로 하지 않는다.** 예전엔 생성 → CSS/JS 복사 → `data-sd-theme` 주입 → `</body>` 앞 두 줄 삽입을 따로 했는데, 하나만 빠져도 **발표자 노트·타이머·테마 폰트가 통째로 안 붙은 덱**이 나간다. 스크립트가 주입까지 하고 검증한다.
 

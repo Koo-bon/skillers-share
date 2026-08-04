@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><title>표지 시안 04 · 6종 (getdesign.md 스타일 · 애니)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0b0b0e;font-family:"Pretendard",sans-serif;padding:32px;color:#eee}
+  h1{font-size:20px;font-weight:800;margin-bottom:6px}
+  .lead{color:#8a8594;font-size:14px;margin-bottom:22px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .cover{aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:center;padding:6% 7%;border:1px solid #23232a}
+  .cap{margin-top:8px;color:#9a94a8;font-size:12.5px}
+  .anim{position:absolute;top:9px;right:11px;font-size:10px;font-weight:800;color:#0b0b0e;background:#4ADE80;border-radius:20px;padding:2px 8px;z-index:5}
+
+  /* A · producthero 화이트 제품 (유지) */
+  .c-white{background:#fff;color:#1d1d1f;align-items:center;text-align:center}
+  .c-white .k{color:#86868b;font-weight:700;font-size:11px}
+  .c-white .h{font-weight:800;font-size:34px;letter-spacing:-.02em;line-height:1.05;margin:6px 0}
+  .c-white .h .ac{background:linear-gradient(90deg,#0071e3,#8a5cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .c-white .prod{width:52%;height:34%;margin-top:6px;border-radius:10px;background:radial-gradient(60% 70% at 50% 45%,#e9edf2,#f6f8fa);box-shadow:inset 0 0 0 1px #eee}
+
+  /* B · 다크 오케 (유지) */
+  .c-dark{background:radial-gradient(120% 100% at 20% 10%,#1a1230 0%,#0b0910 60%)}
+  .c-dark .k{color:#b9a7ff;font-weight:700;font-size:11px;letter-spacing:.14em}
+  .c-dark .h{color:#fff;font-weight:900;font-size:36px;line-height:1.04;margin-top:8px}
+  .c-dark .h .ac{color:#9d7bff}
+  .c-dark .flow{display:flex;gap:6px;margin-top:14px}
+  .c-dark .n{flex:1;border:1.5px solid #2c2542;border-radius:8px;padding:7px;text-align:center;color:#9a93ab;font-size:9px;font-weight:800}
+  .c-dark .n.on{border-color:#9d7bff;color:#fff;box-shadow:0 0 18px rgba(157,123,255,.4)}
+  .c-dark .g{flex:0 0 auto;border:1.5px dashed #ff5470;border-radius:8px;padding:7px 6px;color:#ff8b8b;font-size:9px;font-weight:800;align-self:center}
+
+  /* C · Stripe 스타일 — 흐르는 보라 그라데이션 (애니) */
+  .c-stripe{color:#fff;justify-content:center;
+    background:linear-gradient(120deg,#635bff,#a855f7,#00d4ff,#635bff);background-size:300% 300%;
+    animation:flow 8s ease infinite}
+  @keyframes flow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+  .c-stripe .k{font-weight:400;font-size:11px;letter-spacing:.14em;opacity:.85}
+  .c-stripe .h{font-weight:300;font-size:40px;line-height:1.02;margin-top:8px;letter-spacing:-.02em}
+  .c-stripe .h b{font-weight:800}
+
+  /* D · Nike/Tesla — 풀블리드 이미지 + 초대형 캡스 (후킹 이미지) */
+  .c-photo{justify-content:flex-end;overflow:hidden}
+  .c-photo::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(80% 120% at 70% 30%,#3a4a55,#0e1418 70%),
+      repeating-linear-gradient(115deg,rgba(255,255,255,.04) 0 2px,transparent 2px 26px);
+    transform:scale(1.05)}
+  .c-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.7))}
+  .c-photo>*{position:relative;z-index:2}
+  .c-photo .k{color:#fff;font-weight:800;font-size:11px;letter-spacing:.1em;opacity:.8}
+  .c-photo .h{color:#fff;font-weight:900;font-size:46px;line-height:.92;letter-spacing:-.02em;text-transform:uppercase}
+
+  /* E · Discord 블러플 — 올캡스 + 반짝 스윕 (애니) */
+  .c-disc{background:#5865F2;color:#fff;justify-content:center;overflow:hidden}
+  .c-disc::before{content:"";position:absolute;top:0;left:-40%;width:40%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.25),transparent);
+    animation:sweep 3.2s ease-in-out infinite}
+  @keyframes sweep{0%{left:-40%}60%,100%{left:120%}}
+  .c-disc .k{font-weight:800;font-size:11px;letter-spacing:.2em;opacity:.85}
+  .c-disc .h{font-weight:900;font-size:40px;line-height:.98;text-transform:uppercase;letter-spacing:-.01em;margin-top:8px}
+
+  /* F · Shopify 시네마틱 다크 + 네온 그린 */
+  .c-shop{background:radial-gradient(120% 100% at 80% 0%,#10231a,#070b09 65%);justify-content:center}
+  .c-shop .k{color:#4ADE80;font-weight:800;font-size:11px;letter-spacing:.14em}
+  .c-shop .h{color:#eafff2;font-weight:900;font-size:40px;line-height:1;letter-spacing:-.02em;margin-top:8px}
+  .c-shop .h .ac{color:#4ADE80}
+  .c-shop .bar{margin-top:14px;height:3px;width:46%;border-radius:3px;background:linear-gradient(90deg,#4ADE80,transparent)}
+</style></head><body>
+  <h1>표지 시안 04 · 6종 — getdesign.md 스타일 반영 (세리프 없음)</h1>
+  <div class="lead">A·B 유지 + Stripe·Nike/Tesla·Discord·Shopify 스타일 4종. 🟢 애니 = 움직이는 표지. 발표 주제로 고른다</div>
+  <div class="grid">
+    <div><div class="cover c-white"><div class="k">AI 실험실 · 공유회</div>
+      <div class="h">제품이,<br><span class="ac">주인공일 때.</span></div><div class="prod"></div></div>
+      <div class="cap">A · producthero(화이트 제품) — 제품·앱 발표</div></div>
+
+    <div><div class="cover c-dark"><div class="k">AUTOMATION · 공유회</div>
+      <div class="h">스킬을,<br><span class="ac">부리는 법.</span></div>
+      <div class="flow"><div class="n on">S1</div><div class="g">✋</div><div class="n">S2</div><div class="n">S3</div><div class="g">✋</div><div class="n">S4</div></div></div>
+      <div class="cap">B · orchrun/harnessflow(다크 오케) — 자동화 발표</div></div>
+
+    <div><div class="cover c-stripe"><span class="anim">🟢 애니</span><div class="k">WORKFLOW · 공유회</div>
+      <div class="h">복잡한 걸,<br><b>우아하게.</b></div></div>
+      <div class="cap">C · Stripe 스타일 — 흐르는 보라 그라데이션 + 얇은 타이포. SaaS·기획</div></div>
+
+    <div><div class="cover c-photo"><div class="k">CREATIVE · 공유회</div>
+      <div class="h">JUST<br>HOOK IT</div></div>
+      <div class="cap">D · Nike/Tesla 스타일 — 풀블리드 이미지 + 초대형 대문자(후킹 이미지 자리)</div></div>
+
+    <div><div class="cover c-disc"><span class="anim">🟢 애니</span><div class="k">COMMUNITY · 공유회</div>
+      <div class="h">MADE FOR<br>SKILLERS</div></div>
+      <div class="cap">E · Discord 블러플 — 올캡스 + 반짝 스윕(움직임). 커뮤니티·입문</div></div>
+
+    <div><div class="cover c-shop"><div class="k">BUILD · 공유회</div>
+      <div class="h">직접 만든<br><span class="ac">자동화.</span></div><div class="bar"></div></div>
+      <div class="cap">F · Shopify 시네마틱 — 다크 + 네온 그린. 빌드·개발</div></div>
+  </div>
+</body></html>

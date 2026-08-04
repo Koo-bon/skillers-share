@@ -46,11 +46,12 @@
 |---|---|---|
 | 기본 산세리프 | **Pretendard** | `cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css` |
 | 강한 헤드라인 | **Paperlogy** | `cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-9Black.woff2` |
-| 세리프 | **Gowun Batang** | Google Fonts `Gowun+Batang:wght@400;700` |
 | 손글씨·둥근 | **Gowun Dodum** | Google Fonts `Gowun+Dodum` |
 | 모노 | **JetBrains Mono** | Google Fonts `JetBrains+Mono:wght@400;700` |
 
 **한 덱에 폰트는 2종까지.** 헤드라인용 1 + 본문용 1. 3종을 넘기는 순간 PPT가 된다.
+
+**세리프(명조체)는 쓰지 않는다.** 한글 명조는 슬라이드에서 얇고 흐리게 읽혀 임팩트가 죽는다. 매거진 느낌은 세리프가 아니라 **레이아웃 + 굵기 대비(Paperlogy 900 ↔ Pretendard 300)** 로 낸다.
 
 한국어 줄바꿈은 단어 단위로(`word-break: keep-all`) — webdeck 렌더러에 이미 적용돼 있다.
 
@@ -123,7 +124,7 @@
 { "bg": "#EFEDE8", "accent": "#C8452F", "red": "#DCD7CD", "ink": "#1A1A18", "dim": "#6E6A62" }
 ```
 
-- 폰트: Gowun Batang(헤드라인, 세리프) + Pretendard(캡션)
+- 폰트: **Paperlogy 900(헤드라인, 굵은 산세리프) + Pretendard 300(캡션·본문)**. 세리프(명조) 안 쓴다 — 매거진 느낌은 굵기 대비와 큰 여백으로 낸다
 - **검정 + 골드로 가지 않는다.** 호텔 브로슈어처럼 보인다. 밝은 지면 + 잉크 블랙 + 한 점의 붉은 강조가 훨씬 매거진답다
 - `cover` `feature` `grid` 타입을 많이 쓴다. **이미지가 확보된 발표에만 권한다**
 - 캡션을 적극적으로 쓴다. 이미지 옆 13px 캡션 한 줄이 지면 느낌을 만든다
@@ -180,6 +181,22 @@
 소재에 이미지가 거의 없으면 에디토리얼을 피하고 볼드 컬러로 대체한다.
 
 ---
+
+### 레퍼런스 소스 — getdesign.md
+
+컨셉을 새로 잡을 땐 [getdesign.md](https://getdesign.md/) 를 참고한다 — 실제 사이트 300+개의 색·폰트·레이아웃을 정리한 DESIGN.md 카탈로그. 발표 주제에 맞는 스타일을 가져온다:
+
+| 스타일 | 느낌 | 맞는 발표 |
+|---|---|---|
+| **Stripe** | 흐르는 보라 그라데이션 + 얇은 타이포 | SaaS·기획·우아함 |
+| **Nike / Tesla** | 풀블리드 이미지 + 초대형 대문자 | 크리에이티브·임팩트 |
+| **Discord** | 블러플 + 올캡스 디스플레이 | 커뮤니티·입문 |
+| **Shopify** | 다크 시네마틱 + 네온 그린 | 빌드·개발 |
+| **Apple** | 화이트 여백 + 제품 히어로 | 제품·앱 (→ `producthero`) |
+
+**표지 시안**: `design-concepts/04-새무기-표지-6종.html` 에 위 스타일을 표지로 옮긴 6종(움직이는 표지 2종 포함)이 있다. 열어서 고른다.
+
+**움직이는 표지**: Stripe(흐르는 그라데이션)·Discord(반짝 스윕)처럼 표지에 **CSS 애니메이션**을 넣으면 첫 3초 후킹이 강해진다. 과하지 않게 한 요소만 — 배경 그라데이션이 천천히 흐르거나, 빛이 한 번 스윕하는 정도. 세리프(명조)는 어디에도 쓰지 않는다.
 
 ## 커스텀 테마 (Q3에서 ⑥을 고른 경우)
 
