@@ -23,7 +23,9 @@ if [ -f SKILL.md ]; then
 fi
 
 echo "[3] 플레이스홀더"
-if grep -rnE '(TBD|TODO|추후 (작성|보완)|채워야)' --include='*.md' . ; then
+# docs/ 는 규칙 자체를 설명하는 문서라 제외한다 (금지어를 인용한다)
+if grep -rnE '(TBD|TODO|추후 (작성|보완)|채워야)' --include='*.md' \
+     --exclude-dir=docs --exclude-dir=design-concepts --exclude-dir=bundled . ; then
   err "플레이스홀더 발견"
 else
   ok "플레이스홀더 없음"
