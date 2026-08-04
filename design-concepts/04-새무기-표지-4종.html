@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><title>표지 시안 04 · 새 무기 4종</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0b0b0e;font-family:"Apple SD Gothic Neo","Pretendard",sans-serif;padding:32px;color:#eee}
+  h1{font-size:20px;font-weight:800;margin-bottom:6px}
+  .lead{color:#8a8594;font-size:14px;margin-bottom:22px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .cover{aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:center;padding:6% 7%;border:1px solid #23232a}
+  .cap{margin-top:8px;color:#9a94a8;font-size:12.5px}
+  /* A · 화이트 제품(producthero) */
+  .c-white{background:#fff;color:#1d1d1f;align-items:center;text-align:center}
+  .c-white .k{color:#86868b;font-weight:700;font-size:11px;letter-spacing:.02em}
+  .c-white .h{font-weight:800;font-size:34px;letter-spacing:-.02em;line-height:1.05;margin:6px 0}
+  .c-white .h .ac{background:linear-gradient(90deg,#0071e3,#8a5cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .c-white .prod{width:52%;height:34%;margin-top:6px;border-radius:10px;background:radial-gradient(60% 70% at 50% 45%,#e9edf2,#f6f8fa);box-shadow:inset 0 0 0 1px #eee}
+  /* B · 다크 오케(orchrun/harnessflow) */
+  .c-dark{background:radial-gradient(120% 100% at 20% 10%,#1a1230 0%,#0b0910 60%)}
+  .c-dark .k{color:#b9a7ff;font-weight:700;font-size:11px;letter-spacing:.14em}
+  .c-dark .h{color:#fff;font-weight:900;font-size:36px;line-height:1.04;margin-top:8px}
+  .c-dark .h .ac{color:#9d7bff}
+  .c-dark .flow{display:flex;gap:6px;margin-top:14px}
+  .c-dark .n{flex:1;border:1.5px solid #2c2542;border-radius:8px;padding:7px;text-align:center;color:#9a93ab;font-size:9px;font-weight:800}
+  .c-dark .n.on{border-color:#9d7bff;color:#fff;box-shadow:0 0 18px rgba(157,123,255,.4)}
+  .c-dark .g{flex:0 0 auto;border:1.5px dashed #ff5470;border-radius:8px;padding:7px 6px;color:#ff8b8b;font-size:9px;font-weight:800;align-self:center}
+  /* C · 다크테크 터미널 */
+  .c-term{background:#050506;font-family:"JetBrains Mono",monospace;justify-content:flex-start}
+  .c-term .k{color:#FF3B1F;font-size:10px;letter-spacing:.1em}
+  .c-term .h{color:#FF3B1F;font-weight:800;font-size:30px;margin-top:10px;line-height:1.1}
+  .c-term .line{color:#7A2A1C;font-size:10px;margin-top:10px}
+  .c-term .cur{display:inline-block;width:8px;height:14px;background:#FF3B1F;vertical-align:middle;margin-left:4px}
+  /* D · 볼드 컬러 초대형 타이포 */
+  .c-bold{background:#0f1f17;justify-content:center}
+  .c-bold .k{color:#4ADE80;font-weight:800;font-size:11px;letter-spacing:.1em}
+  .c-bold .h{color:#eafff2;font-weight:900;font-size:44px;line-height:.98;letter-spacing:-.02em;margin-top:6px}
+  .c-bold .h .ac{color:#4ADE80}
+</style></head><body>
+  <h1>표지 시안 04 · 새 슬라이드 무기 룩</h1>
+  <div class="lead">producthero(화이트 제품) · orchrun/harnessflow(다크 오케) · 다크테크 터미널 · 볼드 컬러 — 발표 주제에 맞춰 고른다</div>
+  <div class="grid">
+    <div>
+      <div class="cover c-white"><div class="k">AI 실험실 · 공유회</div>
+        <div class="h">제품이,<br><span class="ac">주인공일 때.</span></div>
+        <div class="prod"></div></div>
+      <div class="cap">A · producthero — 제품·앱·모바일 발표. 화이트·미니멀·임팩트</div>
+    </div>
+    <div>
+      <div class="cover c-dark"><div class="k">AUTOMATION · 공유회</div>
+        <div class="h">스킬을,<br><span class="ac">부리는 법.</span></div>
+        <div class="flow"><div class="n on">S1</div><div class="g">✋</div><div class="n">S2</div><div class="n">S3</div><div class="g">✋</div><div class="n">S4</div></div></div>
+      <div class="cap">B · orchrun/harnessflow — 자동화·워크플로우 발표</div>
+    </div>
+    <div>
+      <div class="cover c-term"><div class="k">/01 · SKILLERS · 2026</div>
+        <div class="h">터미널에서,<br>시작합니다<span class="cur"></span></div>
+        <div class="line">$ git clone · bash install.sh — 끝. 스킬이 깔립니다</div></div>
+      <div class="cap">C · 다크 테크 — 개발·툴·셋업 발표</div>
+    </div>
+    <div>
+      <div class="cover c-bold"><div class="k">CREATIVE · 공유회</div>
+        <div class="h">후킹,<br><span class="ac">되거나 훅.</span></div></div>
+      <div class="cap">D · 볼드 컬러 — 크리에이티브·카피 발표. 초대형 타이포</div>
+    </div>
+  </div>
+</body></html>
