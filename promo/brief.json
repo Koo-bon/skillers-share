@@ -51,27 +51,14 @@
     {
       "type": "grid",
       "big": true,
-      "cols": 3,
-      "kicker": "③ 제목 → ④ 목차 → ⑤ 덱",
-      "title": "PPT처럼 보이면 실패로 봅니다",
+      "cols": 1,
+      "kicker": "③ 디자인 · PPT처럼 보이면 실패",
       "items": [
         {
-          "img": "__HERE__/assets/concepts6.png",
-          "tag": "표지 시안",
-          "cap": "컨셉에 맞춰 여러 감도를 만들고 고르게 합니다"
-        },
-        {
-          "img": "__HERE__/assets/cover.png",
-          "tag": "고른 표지",
-          "cap": "한 장으로 발표를 파는 포스터. 내지와 규칙이 다릅니다"
-        },
-        {
-          "img": "__HERE__/assets/slide-flow.png",
-          "tag": "내지",
-          "cap": "텍스트만 다섯 장 이어지면 스킬이 스스로 잡아냅니다"
+          "img": "__HERE__/assets/concepts6.png"
         }
       ],
-      "sub": "제목+불릿 나열, 가운데 놓인 작은 이미지, 그라데이션, 클립아트, 시스템 기본 폰트 — 전부 금지 목록입니다"
+      "sub": "컨셉마다 표지 감도를 만들어 고르게 합니다 — 시스템 폰트·클립아트·가운데 작은 이미지 금지"
     },
     {
       "type": "feature",
@@ -99,15 +86,65 @@
       "sub": "발표 중에는 S 키로 발표자 노트, T 키로 구간 타이머"
     },
     {
-      "type": "grid",
-      "big": true,
-      "cols": 1,
-      "kicker": "구조 · 오케스트레이터가 셋을 부린다",
-      "items": [
+      "type": "orgchart",
+      "kicker": "구조 · 공유회-OS가 셋을 부린다",
+      "title": "오케스트레이터 → 지침·엔진·스킬",
+      "chief": {
+        "role": "발표자 · 최종 결정",
+        "name": "나"
+      },
+      "boss": {
+        "role": "오케스트레이터 (하네스)",
+        "name": "공유회-OS"
+      },
+      "teams": [
         {
-          "img": "__HERE__/assets/structure.png"
+          "role": "지침 · references",
+          "name": "흐름 규칙",
+          "skills": [
+            "질문 3개",
+            "유형 6종",
+            "제목 패턴",
+            "1시간 배분",
+            "발표 대본",
+            "디자인·표지"
+          ]
+        },
+        {
+          "role": "엔진 · engine",
+          "name": "덱 도구",
+          "skills": [
+            "덱 생성",
+            "인터넷 배포",
+            "발표자 노트·타이머",
+            "~webdeck 엔진"
+          ]
+        },
+        {
+          "role": "부르는 스킬",
+          "name": "bundled",
+          "skills": [
+            "훅카피",
+            "크리틱디렉터",
+            "spec-guard"
+          ]
+        },
+        {
+          "role": "흐름 · 9단계",
+          "name": "게이트 4곳",
+          "skills": [
+            "스캔",
+            "질문",
+            "내용",
+            "제목",
+            "목차",
+            "덱",
+            "검수"
+          ]
         }
-      ]
+      ],
+      "skilllabel": "구성",
+      "sub": "부장(공유회-OS)이 순서를 정하고 셋을 부린다 · 게이트에서만 내가 컨펌 · ~는 원본에서 받아옴"
     },
     {
       "type": "ending",

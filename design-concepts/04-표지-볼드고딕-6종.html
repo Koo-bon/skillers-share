@@ -15,21 +15,21 @@
   /* A · 화이트 + 애플 톤 */
   .c-white{background:#fff;color:#1d1d1f;align-items:center;text-align:center}
   .c-white .k{color:#86868b;font-weight:800;font-size:11px}
-  .c-white .h{font-weight:900;font-size:34px;letter-spacing:-.02em;line-height:1.04;margin:6px 0}
+  .c-white .h{font-weight:900;font-size:46px;letter-spacing:-.02em;line-height:1.02;margin:8px 0}
   .c-white .h .ac{background:linear-gradient(90deg,#0071e3,#8a5cff);-webkit-background-clip:text;background-clip:text;color:transparent}
 
   /* B · 다크 오케 — 표지답게(큰 타이틀, 칩 없음) */
   .c-dark{background:radial-gradient(120% 100% at 22% 12%,#241a44 0%,#0b0910 62%);color:#fff;justify-content:center}
   .c-dark .k{color:#b9a7ff;font-weight:800;font-size:11px;letter-spacing:.18em}
-  .c-dark .h{font-weight:900;font-size:46px;line-height:1.0;margin-top:8px;letter-spacing:-.02em}
+  .c-dark .h{font-weight:900;font-size:54px;line-height:.98;margin-top:8px;letter-spacing:-.02em}
   .c-dark .h .ac{color:#9d7bff}
   .c-dark .u{margin-top:16px;width:64px;height:5px;border-radius:3px;background:#9d7bff}
 
   /* C · 스폰지클럽 — 흰 배경 + 라임 강조 (내지는 검정) */
   .c-sponge{background:#fff;color:#111;justify-content:center}
   .c-sponge .k{color:#111;font-weight:900;font-size:11px;letter-spacing:.14em}
-  .c-sponge .h{font-weight:900;font-size:44px;line-height:1.02;margin-top:10px;letter-spacing:-.02em}
-  .c-sponge .h mark{background:#d4f733;color:#111;padding:0 8px;border-radius:4px}
+  .c-sponge .h{font-weight:900;font-size:44px;line-height:1.42;margin-top:10px;letter-spacing:-.02em}
+  .c-sponge .h mark{background:#d4f733;color:#111;padding:3px 10px;border-radius:5px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
   .c-sponge .bar{position:absolute;left:0;right:0;bottom:0;background:#111;color:#fff;font-weight:800;font-size:13px;padding:12px 7.5%}
 
   /* D · SpaceX — 순수 블랙 풀블리드, 화이트 대문자, 고스트 필 (정적) */
@@ -48,13 +48,14 @@
   .c-emoji .toc{display:flex;gap:16px;margin-top:16px;color:#4a4a4f;font-size:14px;font-weight:700}
   .c-emoji .toc span b{font-size:18px}
 
-  /* F · Behance 2026 포트폴리오 — B&W 대형, 하단 연한 그라데이션 */
-  .c-port{background:#fff;color:#0a0a0a;justify-content:center;overflow:hidden}
-  .c-port::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(180deg,transparent,#ececec)}
+  /* F · 포트폴리오 표지 스타일 — 파란 배경 초대형 글씨 + 하단 메타줄(①②③) */
+  .c-port{background:#1832e8;color:#fff;justify-content:center;align-items:center;text-align:center;overflow:hidden}
+  .c-port::after{content:"";position:absolute;left:0;right:0;bottom:0;height:38%;background:linear-gradient(180deg,transparent,rgba(0,0,10,.32))}
   .c-port>*{position:relative;z-index:2}
-  .c-port .k{font-weight:800;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#0a0a0a}
-  .c-port .h{font-weight:900;font-size:66px;line-height:.92;letter-spacing:-.04em;margin-top:8px}
-  .c-port .meta{margin-top:14px;color:#6a6a6a;font-size:12px;font-weight:700;letter-spacing:.04em}
+  .c-port .big{font-weight:900;font-size:82px;line-height:.86;letter-spacing:-.045em;text-shadow:0 6px 30px rgba(0,0,0,.25)}
+  .c-port .row{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;padding:14px 6%;font-size:11px;font-weight:800;letter-spacing:.03em;color:#dfe4ff}
+  .c-port .row .items{display:flex;gap:16px}
+  .c-port .row .items span b{color:#fff}
 </style></head><body>
   <h1>표지 시안 · 볼드 고딕 6종 — 세리프 없음 · 애니메이션 없음(정적)</h1>
   <div class="lead">A 화이트·애플 · B 다크 오케(표지) · C 스폰지클럽 흰+<b>라임</b> · D SpaceX 블랙 · E 애플 이모지 · F Behance 대형 B&W</div>
@@ -79,13 +80,14 @@
 
     <div><div class="cover c-emoji"><div class="k">SKILLERS · 공유회</div>
       <div class="em">🎤 ✨ 🚀</div>
-      <div class="h">오늘, 당신 차례예요.</div>
-      <div class="toc"><span>🎯 <b>주제</b></span><span>📝 <b>목차</b></span><span>🖥 <b>덱</b></span><span>🎙 <b>대본</b></span></div></div>
+      <div class="h">오늘, 당신 차례예요.</div></div>
       <div class="cap">E · <b>애플 이모지</b> 컨셉 — 흰 배경 + 강조/목차에 이모지. 입문·친근</div></div>
 
-    <div><div class="cover c-port"><div class="k">Skillers Unit · 2026</div>
-      <div class="h">공유회<br>OS.</div>
-      <div class="meta">SHARE-SESSION AUTOMATION · KOO-BON</div></div>
-      <div class="cap">F · <b>Behance 대형 B&W</b> — 초대형 글씨 + 세련·심플 + 하단 연 그라데이션</div></div>
+    <div><div class="cover c-port">
+      <div class="big">공유회-OS</div>
+      <div class="row"><div>SKILLERS UNIT<br>2026 SHARE-SESSION</div>
+        <div class="items"><span>① <b>주제</b></span><span>② <b>목차</b></span><span>③ <b>덱·대본</b></span></div>
+        <div>koo-bon</div></div></div>
+      <div class="cap">F · 포트폴리오 표지 스타일 — 파란 배경 + 초대형 글씨 + 하단 ①②③ 메타줄</div></div>
   </div>
 </body></html>
