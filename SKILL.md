@@ -197,6 +197,8 @@ bash engine/build-deck.sh <brief.json> <출력폴더> <테마> [notes.json]
 
 테마 값: `minimal-bw` `bold-color` `soft` `editorial` `dark-tech`
 
+**발표가 특정 서비스·OS·제품을 다루면, 5종을 꺼내기 전에 그 서비스 톤(컬러)에 맞춘 디자인을 0번으로 먼저 추천한다.** `references/themes.md` 의 "0순위 — 발표 대상 서비스가 있으면 그 톤에 맞춘다" 를 따른다. 색은 로고·랜딩·화면에서 읽고, 모르면 지어내지 말고 링크·캡처를 요청한다. 발표자가 다른 걸 원하면 그때 Q3 5종으로.
+
 **주제에 맞는 특수 슬라이드 타입을 1~3장 넣는다.** `references/themes.md` 의 "새 슬라이드 무기 — 주제별로" 표를 본다 — 자동화 발표면 `orchrun`·`harnessflow`, 제품 발표면 `producthero`, 전후 비교면 `feature`+`ba`/`flip`. 무난한 카드만 쓰면 PPT 티가 난다. (표지 시안 예시: `design-concepts/04-표지-볼드고딕-6종.html`)
 
 **손으로 하지 않는다.** 예전엔 생성 → CSS/JS 복사 → `data-sd-theme` 주입 → `</body>` 앞 두 줄 삽입을 따로 했는데, 하나만 빠져도 **발표자 노트·타이머·테마 폰트가 통째로 안 붙은 덱**이 나간다. 스크립트가 주입까지 하고 검증한다.
