@@ -146,7 +146,7 @@
           true
         ]
       ],
-      "foot": "git clone https://github.com/Koo-bon/skillers-share.git  →  cd skillers-share && bash install.sh  →  Claude Code(터미널)에서 \"공유회 준비해줘\"     ·     claude.ai 웹·앱도 제한 모드로 가능     ·     MIT"
+      "foot": "터미널(Claude Code): 링크 붙여넣고 \"이거 설치해줘\"     ·     claude.ai 앱·웹·폰: 릴리스 zip 받아 설정→스킬→업로드에 드래그(1회)     ·     그다음 \"공유회 준비해줘\"     ·     MIT"
     }
   ]
 }
