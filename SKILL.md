@@ -248,13 +248,12 @@ cd <출력폴더> && python3 -m http.server 8080
 **외부에서 열리려면 배포가 필요하다.** 로컬 HTML은 링크로 넘길 수 없다. **GitHub Pages** 로 배포한다 — 무료, 영구, URL이 깔끔하고, 발표 후 채널 공유와 VOD 자료로 그대로 쓴다.
 
 ```bash
-cd <출력폴더>
-git init && git add -A && git commit -m "deck"
-gh repo create <저장소명> --public --source=. --push
-gh api repos/:owner/<저장소명>/pages -f "source[branch]=main" -f "source[path]=/"
+bash engine/deploy.sh <출력폴더>
 ```
 
-`gh` 가 없으면 로컬 경로만 주고 배포 방법을 안내한다. **배포 안 된 링크를 있는 것처럼 적지 않는다.**
+한 줄이면 저장소 생성·푸시·Pages 설정까지 끝나고 주소가 나온다. 저장소 이름은 폴더명에서 자동으로 만들되, 한글이 날아가 부실해지면 시각을 붙여 유일하게 만든다.
+
+`gh` 가 없으면 스크립트가 **설치법과 손으로 올리는 법을 둘 다 안내하고 멈춘다.** 그때는 로컬 경로만 준다. **배포 안 된 링크를 있는 것처럼 적지 않는다.**
 
 ## 마지막에 챙길 것
 
