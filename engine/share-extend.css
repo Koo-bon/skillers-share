@@ -138,6 +138,11 @@ html[data-sd-theme="dark-tech"], body[data-sd-theme="dark-tech"] {
 [data-sd-theme] .core,
 [data-sd-theme] .sec-title { font-family: var(--sd-font-head); font-size: var(--sd-h-body); font-weight: 700; }
 
+/* 내지 소제목(.slidetitle)은 본문 헤드라인만큼 크면 안 된다 — 아래 내용과 균형 맞춰 중간 크기로. */
+[data-sd-theme] .slidetitle { font-size: clamp(24px, 3.1vw, 46px); }
+/* 이미지 셀 레터박스 배경이 청록으로 튀어 보이는 것 제거 — 덱 배경과 맞춘다. */
+[data-sd-theme] .gimg { background: #0e0e10 !important; }
+
 [data-sd-theme] .sub,
 [data-sd-theme] .sec-sub { font-family: var(--sd-font-body); font-size: var(--sd-sub); font-weight: 400; }
 
