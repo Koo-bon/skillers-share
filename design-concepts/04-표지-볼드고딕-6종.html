@@ -7,10 +7,11 @@
   h1{font-size:20px;font-weight:900;margin-bottom:4px}
   .lead{color:#8a8594;font-size:13.5px;margin-bottom:20px}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  /* clean 모드 — PPT 삽입용: 제목·설명·캡션 빼고 표지 6개만 꽉 차게 */
+  /* clean 모드 — PPT 삽입용: 제목·설명 빼고 표지 6개(3열×2행) + 작은 컨셉 라벨 */
   body.clean{padding:16px}
-  body.clean h1,body.clean .lead,body.clean .cap{display:none}
-  body.clean .grid{gap:14px}
+  body.clean h1,body.clean .lead{display:none}
+  body.clean .grid{grid-template-columns:1fr 1fr 1fr;gap:14px}
+  body.clean .cap{font-size:12px;margin-top:6px;line-height:1.4}
   .cover{aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:center;padding:7% 7.5%;border:1px solid #23232a}
   .cap{margin-top:8px;color:#9a94a8;font-size:12.5px}
   .cap b{color:#c8f135}
