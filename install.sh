@@ -13,6 +13,18 @@ STAMP="$(date +%Y%m%d-%H%M%S)"
 FORCE=0
 [ "${1:-}" = "--force" ] && FORCE=1
 
+# ── 0) 부트스트랩 — checkout 밖에서 실행되면(예: curl | bash) 저장소를 받아 다시 실행한다.
+#     그래서 "한 줄 설치"가 가능하다:
+#       curl -fsSL https://raw.githubusercontent.com/Koo-bon/skillers-share/main/install.sh | bash
+if [ ! -f "$SRC/SKILL.md" ] || [ ! -f "$SRC/engine/build-deck.sh" ]; then
+  command -v git >/dev/null 2>&1 || { echo "git 이 필요합니다. 맥: xcode-select --install"; exit 1; }
+  echo "공유회-OS 저장소를 받는 중… (git clone)"
+  BOOT="$(mktemp -d)"
+  git clone --depth 1 https://github.com/Koo-bon/skillers-share.git "$BOOT/repo" >/dev/null 2>&1 \
+    || { echo "클론 실패 — 인터넷 연결을 확인하세요."; exit 1; }
+  exec bash "$BOOT/repo/install.sh" "$@"
+fi
+
 WEBDECK_RAW="https://raw.githubusercontent.com/Koo-bon/webdeck/main"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
