@@ -49,15 +49,16 @@ cd skillers-share && bash install.sh
 
 인터넷이 없으면 2번이 실패하고, 3번은 동봉본으로 진행됩니다.
 
-### claude.ai 웹·데스크톱 앱·폰에서 쓰기
+### claude.ai 웹·데스크톱 앱·폰에서 쓰기 — 터미널 필요 없음
 
-터미널 없이 **claude.ai에서도** 쓰려면, 업로드용 패키지를 만들어 올리면 됩니다.
+**미리 만들어 둔 zip을 받아서 올리기만** 하면 됩니다. 빌드도, 터미널도 필요 없어요.
 
-```bash
-bash make-cloud-package.sh
-```
+1. **받기** → [최신 릴리스 zip 다운로드](https://github.com/Koo-bon/skillers-share/releases/latest/download/skillers-share-claude-ai.zip)
+2. claude.ai → **설정 → 사용자 지정 → 스킬 → [추가 ▾] → 스킬 업로드**
+3. 받은 zip을 **끌어다 놓기** → 끝. 같은 계정의 **웹·데스크톱 앱·폰 어디서나** `공유회 준비해줘` 로 뜹니다.
 
-`dist/공유회-OS-claude.ai.zip` 이 나옵니다 (엔진까지 통째로 담은 self-contained). claude.ai → **Settings → Capabilities/Skills → 스킬 업로드**에 이 zip을 올리면, 같은 계정의 **웹·데스크톱 앱·폰 어디서나** `공유회 준비해줘` 로 뜹니다.
+> claude.ai는 커스텀 스킬을 **업로드로만** 설치합니다(URL 자동설치가 없음). 그래서 "한 번 올리기"는 피할 수 없지만, 경로·형식 문제는 이 zip에 **미리 다 해결**돼 있어 드래그 한 번이면 됩니다.
+> (직접 다시 빌드하려면: `bash make-cloud-package.sh` → `dist/skillers-share-claude-ai.zip`)
 
 웹·앱에서 달라지는 건 딱 두 개고, **산출물 품질은 터미널과 같습니다**:
 
