@@ -40,7 +40,7 @@ body.sd-notes-on #sd-timer { bottom: calc(42vh + 16px); }
   font-display: swap;
 }
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=JetBrains+Mono:wght@400;700&display=swap');
 
 :root {
   /* 기본값: Pretendard, 폰트 로드 실패 시 시스템 산세리프로 폴백 */
@@ -78,10 +78,11 @@ html[data-sd-theme="soft"], body[data-sd-theme="soft"] {
   --sd-font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
 }
 
-/* 에디토리얼 — Gowun Batang(헤드라인, 세리프) + Pretendard(캡션) */
+/* 에디토리얼 — Paperlogy 900(헤드라인) + Pretendard(캡션). 세리프 안 쓴다 */
 html[data-sd-theme="editorial"], body[data-sd-theme="editorial"] {
-  --sd-font-head: 'Gowun Batang', Georgia, serif;
+  --sd-font-head: 'Paperlogy9Black', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
   --sd-font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+  --sd-echo: #C8452F;
 }
 
 /* 다크 테크 — JetBrains Mono(키커·라벨·코드) + Pretendard(헤드라인·본문) */
@@ -367,3 +368,20 @@ html[data-sd-theme="dark-tech"], body[data-sd-theme="dark-tech"] {
 [data-sd-theme="soft"] .slide::before { opacity: .045; }
 [data-sd-theme="editorial"] .slide::after,
 [data-sd-theme="soft"] .slide::after { opacity: .1; }
+
+/* ─────────────────────────────────────────────
+   표지 · 아웃라인 스택 (design-concepts D)
+   같은 글자를 아웃라인·솔리드·아웃라인으로 어긋나게 3겹.
+   반복을 글자 자체로 만든다. data-sd-cover="outline" 일 때만.
+   ───────────────────────────────────────────── */
+[data-sd-cover="outline"] .slide:first-child { align-items:center; justify-content:center; text-align:center }
+[data-sd-cover="outline"] .slide:first-child .core{
+  position:relative; color:transparent;
+  /* currentColor 를 쓰면 위의 transparent 를 물려받아 테두리까지 사라진다. 색을 직접 준다. */
+  -webkit-text-stroke:1.6px var(--ink,#1A1A18);
+  line-height:.92; text-align:center;
+}
+/* accent 줄은 채워진 색 그대로 둔다 — 테두리 줄과 대비를 만드는 게 이 표지의 핵심 */
+[data-sd-cover="outline"] .slide:first-child .core .ac{ -webkit-text-stroke:0 }
+/* 라벨이 글자 윗선에 달라붙는다. line-height .92 로 줄어든 만큼 되돌린다 */
+[data-sd-cover="outline"] .slide:first-child .kicker{ margin-bottom:3.5vh }

@@ -20,7 +20,10 @@ esac
 
 python3 "$ENG/generate_deck.py" "$BRIEF" "$OUT" >/dev/null
 cp "$ENG/share-extend.css" "$ENG/share-extend.js" "$OUT/"
-[ -n "$NOTES" ] && cp "$NOTES" "$OUT/notes.json"
+# 이미 출력 폴더 안의 파일을 가리키면 복사하지 않는다 (cp 가 자기 자신을 복사하려다 죽는다)
+if [ -n "$NOTES" ] && [ "$(cd "$(dirname "$NOTES")" && pwd)/$(basename "$NOTES")" != "$(cd "$OUT" && pwd)/notes.json" ]; then
+  cp "$NOTES" "$OUT/notes.json"
+fi
 
 python3 - "$OUT" "$THEME" <<'PY'
 import pathlib, sys
