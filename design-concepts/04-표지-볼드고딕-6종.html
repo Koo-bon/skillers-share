@@ -7,6 +7,10 @@
   h1{font-size:20px;font-weight:900;margin-bottom:4px}
   .lead{color:#8a8594;font-size:13.5px;margin-bottom:20px}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  /* clean 모드 — PPT 삽입용: 제목·설명·캡션 빼고 표지 6개만 꽉 차게 */
+  body.clean{padding:16px}
+  body.clean h1,body.clean .lead,body.clean .cap{display:none}
+  body.clean .grid{gap:14px}
   .cover{aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:center;padding:7% 7.5%;border:1px solid #23232a}
   .cap{margin-top:8px;color:#9a94a8;font-size:12.5px}
   .cap b{color:#c8f135}
@@ -56,7 +60,8 @@
   .c-port .row{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;padding:14px 6%;font-size:11px;font-weight:800;letter-spacing:.03em;color:#dfe4ff}
   .c-port .row .items{display:flex;gap:16px}
   .c-port .row .items span b{color:#fff}
-</style></head><body>
+</style><script>if(location.search.indexOf('clean')>=0)document.documentElement.addEventListener('DOMContentLoaded',()=>{});</script></head><body>
+  <script>if(location.search.indexOf('clean')>=0)document.body.classList.add('clean');</script>
   <h1>표지 시안 · 볼드 고딕 6종 — 세리프 없음 · 애니메이션 없음(정적)</h1>
   <div class="lead">A 화이트·애플 · B 다크 오케(표지) · C 스폰지클럽 흰+<b>라임</b> · D SpaceX 블랙 · E 애플 이모지 · F Behance 대형 B&W</div>
   <div class="grid">
