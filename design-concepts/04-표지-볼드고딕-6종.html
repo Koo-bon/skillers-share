@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko"><head><meta charset="utf-8"><title>표지 시안 · 볼드 고딕 6종 (오브젝트 애니)</title>
+<html lang="ko"><head><meta charset="utf-8"><title>표지 시안 · 볼드 고딕 6종 (정적)</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
@@ -7,96 +7,85 @@
   h1{font-size:20px;font-weight:900;margin-bottom:4px}
   .lead{color:#8a8594;font-size:13.5px;margin-bottom:20px}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  .cover{aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:center;padding:6% 7%;border:1px solid #23232a}
+  .cover{aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:center;padding:7% 7.5%;border:1px solid #23232a}
   .cap{margin-top:8px;color:#9a94a8;font-size:12.5px}
   .cap b{color:#c8f135}
-  .anim{position:absolute;top:9px;right:11px;font-size:10px;font-weight:900;color:#0b0b0e;background:#c8f135;border-radius:20px;padding:2px 8px;z-index:6}
   .up{text-transform:uppercase}
 
-  /* A · producthero 화이트 제품 (유지) */
+  /* A · 화이트 + 애플 톤 */
   .c-white{background:#fff;color:#1d1d1f;align-items:center;text-align:center}
   .c-white .k{color:#86868b;font-weight:800;font-size:11px}
   .c-white .h{font-weight:900;font-size:34px;letter-spacing:-.02em;line-height:1.04;margin:6px 0}
   .c-white .h .ac{background:linear-gradient(90deg,#0071e3,#8a5cff);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .c-white .prod{width:52%;height:33%;margin-top:6px;border-radius:10px;background:radial-gradient(60% 70% at 50% 45%,#e9edf2,#f6f8fa);box-shadow:inset 0 0 0 1px #eee}
 
-  /* B · 다크 오케 (유지) */
-  .c-dark{background:radial-gradient(120% 100% at 20% 10%,#1a1230 0%,#0b0910 60%)}
-  .c-dark .k{color:#b9a7ff;font-weight:800;font-size:11px;letter-spacing:.14em}
-  .c-dark .h{color:#fff;font-weight:900;font-size:36px;line-height:1.02;margin-top:8px}
+  /* B · 다크 오케 — 표지답게(큰 타이틀, 칩 없음) */
+  .c-dark{background:radial-gradient(120% 100% at 22% 12%,#241a44 0%,#0b0910 62%);color:#fff;justify-content:center}
+  .c-dark .k{color:#b9a7ff;font-weight:800;font-size:11px;letter-spacing:.18em}
+  .c-dark .h{font-weight:900;font-size:46px;line-height:1.0;margin-top:8px;letter-spacing:-.02em}
   .c-dark .h .ac{color:#9d7bff}
-  .c-dark .flow{display:flex;gap:6px;margin-top:14px}
-  .c-dark .n{flex:1;border:1.5px solid #2c2542;border-radius:8px;padding:7px;text-align:center;color:#9a93ab;font-size:9px;font-weight:900}
-  .c-dark .n.on{border-color:#9d7bff;color:#fff;box-shadow:0 0 18px rgba(157,123,255,.4)}
-  .c-dark .g{flex:0 0 auto;border:1.5px dashed #ff5470;border-radius:8px;padding:7px 6px;color:#ff8b8b;font-size:9px;font-weight:900;align-self:center}
+  .c-dark .u{margin-top:16px;width:64px;height:5px;border-radius:3px;background:#9d7bff}
 
-  /* C · 블랙&화이트 + 라임 포인트 (심플) — 오브젝트: 라임 링이 펄스 */
-  .c-lime{background:#0a0a0a;color:#fff;justify-content:flex-start}
-  .c-lime .k{font-weight:800;font-size:11px;letter-spacing:.16em;color:#c8f135}
-  .c-lime .h{font-weight:900;font-size:40px;line-height:1.0;margin-top:10px;letter-spacing:-.02em}
-  .c-lime .h .ac{color:#c8f135}
-  .c-lime .obj{position:absolute;right:9%;top:50%;width:70px;height:70px;transform:translateY(-50%)}
-  .c-lime .obj::before,.c-lime .obj::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #c8f135}
-  .c-lime .obj::after{animation:pulsering 2.4s ease-out infinite}
-  @keyframes pulsering{0%{transform:scale(.5);opacity:1}100%{transform:scale(1.9);opacity:0}}
-  .c-lime .dot{position:absolute;right:calc(9% + 30px);top:50%;width:12px;height:12px;border-radius:50%;background:#c8f135;transform:translateY(-50%);box-shadow:0 0 16px #c8f135}
+  /* C · 스폰지클럽 — 흰 배경 + 라임 강조 (내지는 검정) */
+  .c-sponge{background:#fff;color:#111;justify-content:center}
+  .c-sponge .k{color:#111;font-weight:900;font-size:11px;letter-spacing:.14em}
+  .c-sponge .h{font-weight:900;font-size:44px;line-height:1.02;margin-top:10px;letter-spacing:-.02em}
+  .c-sponge .h mark{background:#d4f733;color:#111;padding:0 8px;border-radius:4px}
+  .c-sponge .bar{position:absolute;left:0;right:0;bottom:0;background:#111;color:#fff;font-weight:800;font-size:13px;padding:12px 7.5%}
 
-  /* D · SpaceX 스타일 — 순수 블랙 풀블리드, 화이트 대문자, 고스트 필 · 오브젝트: 로켓 상승 */
+  /* D · SpaceX — 순수 블랙 풀블리드, 화이트 대문자, 고스트 필 (정적) */
   .c-space{background:#000;color:#fff;justify-content:flex-end;overflow:hidden}
   .c-space::before{content:"";position:absolute;inset:0;background:radial-gradient(90% 130% at 62% 115%,#2a3540 0%,#0a0d10 55%,#000 80%)}
   .c-space>*{position:relative;z-index:2}
   .c-space .k{font-size:10px;letter-spacing:.2em;font-weight:700}
   .c-space .h{font-weight:900;font-size:44px;line-height:.92;letter-spacing:.02em;margin-top:6px}
   .c-space .pill{margin-top:12px;display:inline-block;border:1.5px solid #fff;border-radius:32px;padding:7px 18px;font-size:10px;font-weight:800;letter-spacing:.1em}
-  .c-space .rocket{position:absolute;right:11%;bottom:6%;font-size:26px;z-index:1;animation:rise 3.4s ease-in infinite}
-  @keyframes rise{0%{transform:translateY(24px);opacity:0}25%{opacity:1}80%{opacity:0}100%{transform:translateY(-96px);opacity:0}}
 
-  /* E · Pilo 스타일 — 볼드 컬러 + 도형 · 오브젝트: 도형 회전/바운스 */
-  .c-pilo{background:#2340e0;color:#eef1ff;overflow:hidden}
-  .c-pilo .k{font-weight:900;font-size:11px;letter-spacing:.1em;color:#ffd23f}
-  .c-pilo .h{font-weight:900;font-size:38px;line-height:1.0;margin-top:8px;letter-spacing:-.02em}
-  .c-pilo .sq{position:absolute;right:-30px;top:-30px;width:150px;height:150px;border-radius:28px;background:#ff5a8a;opacity:.95;animation:spin 9s linear infinite}
-  .c-pilo .ci{position:absolute;right:24%;bottom:16%;width:44px;height:44px;border-radius:50%;border:6px solid #ffd23f;animation:bounce 2.2s ease-in-out infinite}
-  .c-pilo .tri{position:absolute;left:56%;top:20%;width:0;height:0;border-left:22px solid transparent;border-right:22px solid transparent;border-bottom:38px solid #ff6b9d;animation:spin 7s linear infinite reverse}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+  /* E · 애플 이모지 컨셉 — 흰 배경 + 큰 이모지 강조 */
+  .c-emoji{background:#fbfbfd;color:#1d1d1f;justify-content:center}
+  .c-emoji .k{color:#86868b;font-weight:800;font-size:11px;letter-spacing:.02em}
+  .c-emoji .em{font-size:40px;margin:6px 0 2px}
+  .c-emoji .h{font-weight:900;font-size:38px;line-height:1.05;letter-spacing:-.02em}
+  .c-emoji .toc{display:flex;gap:16px;margin-top:16px;color:#4a4a4f;font-size:14px;font-weight:700}
+  .c-emoji .toc span b{font-size:18px}
 
-  /* F · Young Yandex 스타일 — 가운데 초대형 타이틀 · 오브젝트: 뒤 원이 스케일 */
-  .c-yandex{background:#ee3b2e;color:#fff;align-items:center;justify-content:center;text-align:center;overflow:hidden}
-  .c-yandex .k{font-weight:900;font-size:11px;letter-spacing:.2em;opacity:.92}
-  .c-yandex .h{font-weight:900;font-size:64px;line-height:.9;letter-spacing:-.03em;margin-top:4px}
+  /* F · Behance 2026 포트폴리오 — B&W 대형, 하단 연한 그라데이션 */
+  .c-port{background:#fff;color:#0a0a0a;justify-content:center;overflow:hidden}
+  .c-port::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(180deg,transparent,#ececec)}
+  .c-port>*{position:relative;z-index:2}
+  .c-port .k{font-weight:800;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#0a0a0a}
+  .c-port .h{font-weight:900;font-size:66px;line-height:.92;letter-spacing:-.04em;margin-top:8px}
+  .c-port .meta{margin-top:14px;color:#6a6a6a;font-size:12px;font-weight:700;letter-spacing:.04em}
 </style></head><body>
-  <h1>표지 시안 · 볼드 고딕 6종 — 세리프 없음 · 🟢 = 오브젝트 애니(도형이 움직임)</h1>
-  <div class="lead">A 화이트·애플 · B 다크 오케 · C 블랙&화이트+<b>라임</b> · D SpaceX 풀블리드 · E 코발트블루+도형 · F 단색 가운데 대형</div>
+  <h1>표지 시안 · 볼드 고딕 6종 — 세리프 없음 · 애니메이션 없음(정적)</h1>
+  <div class="lead">A 화이트·애플 · B 다크 오케(표지) · C 스폰지클럽 흰+<b>라임</b> · D SpaceX 블랙 · E 애플 이모지 · F Behance 대형 B&W</div>
   <div class="grid">
     <div><div class="cover c-white"><div class="k">AI 실험실 · 공유회</div>
       <div class="h">제품이,<br><span class="ac">주인공일 때.</span></div></div>
-      <div class="cap">A · 화이트 + 애플 톤 — 여백·미니멀. 제품 이미지가 있으면 아래에 크게(회색 박스 없이)</div></div>
+      <div class="cap">A · 화이트 + 애플 톤 — 여백·미니멀. 제품 발표</div></div>
 
-    <div><div class="cover c-dark"><div class="k">AUTOMATION · 공유회</div>
-      <div class="h">스킬을,<br><span class="ac">부리는 법.</span></div>
-      <div class="flow"><div class="n on">S1</div><div class="g">✋</div><div class="n">S2</div><div class="n">S3</div><div class="g">✋</div><div class="n">S4</div></div></div>
-      <div class="cap">B · orchrun/harnessflow(다크 오케) — 자동화 발표</div></div>
+    <div><div class="cover c-dark"><div class="k up">Automation · 공유회</div>
+      <div class="h">스킬을,<br><span class="ac">부리는 법.</span></div><div class="u"></div></div>
+      <div class="cap">B · 다크 오케 <b>표지</b> — 큰 타이틀 + 보라 액센트. 자동화 발표</div></div>
 
-    <div><div class="cover c-lime"><span class="anim">🟢 애니</span><div class="k up">Skillers · 공유회</div>
-      <div class="h">덜어낼수록,<br><span class="ac">선명하게.</span></div>
-      <div class="dot"></div><div class="obj"></div></div>
-      <div class="cap">C · 블랙&화이트 + <b>라임 포인트</b>(심플) — 라임 링이 펄스. 기획·미니멀</div></div>
+    <div><div class="cover c-sponge"><div class="k">SKILLERS · 공유회</div>
+      <div class="h">공유회 차례,<br><mark>무섭지 않게.</mark></div>
+      <div class="bar">아끼면 아무 일도 안 일어나요 — 꺼내놓는 순간 남습니다</div></div>
+      <div class="cap">C · <b>스폰지클럽 스타일</b> — 흰 배경 + 라임 강조 + 검정 바(내지 장표는 검정 배경)</div></div>
 
-    <div><div class="cover c-space"><span class="anim">🟢 애니</span><div class="rocket">🚀</div>
-      <div class="k up">Skillers Unit</div>
+    <div><div class="cover c-space"><div class="k up">Skillers Unit</div>
       <div class="h up">Made for<br>Skillers</div>
       <div class="pill up">Watch ↗</div></div>
-      <div class="cap">D · SpaceX 스타일 — 순수 블랙 풀블리드 + 대문자 + 고스트 필. 오브젝트(로켓) 상승</div></div>
+      <div class="cap">D · SpaceX 스타일 — 순수 블랙 풀블리드 + 대문자 + 고스트 필</div></div>
 
-    <div><div class="cover c-pilo"><span class="anim">🟢 애니</span><div class="sq"></div><div class="ci"></div><div class="tri"></div>
-      <div class="k up">Build · 공유회</div>
-      <div class="h">직접 만든<br>자동화.</div></div>
-      <div class="cap">E · 코발트 블루 + <b>도형</b>(볼드 컬러). 도형이 돌고 튐. 앱·서비스</div></div>
+    <div><div class="cover c-emoji"><div class="k">SKILLERS · 공유회</div>
+      <div class="em">🎤 ✨ 🚀</div>
+      <div class="h">오늘, 당신 차례예요.</div>
+      <div class="toc"><span>🎯 <b>주제</b></span><span>📝 <b>목차</b></span><span>🖥 <b>덱</b></span><span>🎙 <b>대본</b></span></div></div>
+      <div class="cap">E · <b>애플 이모지</b> 컨셉 — 흰 배경 + 강조/목차에 이모지. 입문·친근</div></div>
 
-    <div><div class="cover c-yandex">
-      <div class="k up">Creative · 공유회</div>
-      <div class="h">후킹,<br>되거나 훅.</div></div>
-      <div class="cap">F · 가운데 초대형 타이틀 — 단색 위 큰 임팩트(도형 없음). 크리에이티브</div></div>
+    <div><div class="cover c-port"><div class="k">Skillers Unit · 2026</div>
+      <div class="h">공유회<br>OS.</div>
+      <div class="meta">SHARE-SESSION AUTOMATION · KOO-BON</div></div>
+      <div class="cap">F · <b>Behance 대형 B&W</b> — 초대형 글씨 + 세련·심플 + 하단 연 그라데이션</div></div>
   </div>
 </body></html>
