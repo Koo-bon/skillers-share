@@ -146,7 +146,7 @@
           true
         ]
       ],
-      "foot": "git clone https://github.com/Koo-bon/skillers-share.git  →  cd skillers-share && bash install.sh  →  클로드에 \"공유회 준비해줘\"     ·     MIT 라이선스"
+      "foot": "git clone https://github.com/Koo-bon/skillers-share.git  →  cd skillers-share && bash install.sh  →  Claude Code(터미널)에서 \"공유회 준비해줘\"     ·     ⚠️ 웹·앱 채팅 아님, 터미널 전용     ·     MIT"
     }
   ]
 }

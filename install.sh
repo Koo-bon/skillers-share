@@ -86,5 +86,6 @@ done
 echo
 echo "설치 완료: $DEST"
 echo
-echo "클로드에서 이렇게 부르세요:  공유회 준비해줘"
+echo "Claude Code(터미널)에서 부르세요:  공유회 준비해줘"
+echo "  ※ claude.ai 웹·앱 채팅에서는 안 됩니다 — 터미널에서 'claude' 열고 쓰세요"
 echo "나중에 최신으로 올리려면:    bash install.sh --force"
