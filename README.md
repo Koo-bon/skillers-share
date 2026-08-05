@@ -49,6 +49,24 @@ cd skillers-share && bash install.sh
 
 인터넷이 없으면 2번이 실패하고, 3번은 동봉본으로 진행됩니다.
 
+### claude.ai 웹·데스크톱 앱·폰에서 쓰기
+
+터미널 없이 **claude.ai에서도** 쓰려면, 업로드용 패키지를 만들어 올리면 됩니다.
+
+```bash
+bash make-cloud-package.sh
+```
+
+`dist/공유회-OS-claude.ai.zip` 이 나옵니다 (엔진까지 통째로 담은 self-contained). claude.ai → **Settings → Capabilities/Skills → 스킬 업로드**에 이 zip을 올리면, 같은 계정의 **웹·데스크톱 앱·폰 어디서나** `공유회 준비해줘` 로 뜹니다.
+
+웹·앱에서 달라지는 건 딱 두 개고, **산출물 품질은 터미널과 같습니다**:
+
+| | 터미널(Claude Code) | claude.ai 웹·앱·폰 |
+|---|---|---|
+| 대화 기록 자동 스캔 | ✅ | ➖ 주제를 직접 알려주면 됨 |
+| 인터넷 링크 자동 배포 | ✅ | ➖ 덱이 HTML 파일로 나옴 |
+| 제목·목차·덱 디자인·발표 대본·검수 | ✅ | ✅ **동일** |
+
 ## 함께 쓰는 스킬
 
 `훅카피` · `크리틱디렉터` · `spec-guard` 도 `install.sh` 가 같이 설치한다. 따로 받을 필요가 없다.
