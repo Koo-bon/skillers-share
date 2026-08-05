@@ -21,7 +21,9 @@ trap 'rm -rf "$TMP"' EXIT
 mkdir -p "$DEST/공유회-OS/engine"
 cp "$SRC/SKILL.md" "$DEST/공유회-OS/"
 cp -R "$SRC/references" "$DEST/공유회-OS/"
-cp "$SRC/engine/share-extend.css" "$SRC/engine/share-extend.js" "$DEST/공유회-OS/engine/"
+cp "$SRC/engine/share-extend.css" "$SRC/engine/share-extend.js" \
+   "$SRC/engine/build-deck.sh" "$SRC/engine/deploy.sh" "$DEST/공유회-OS/engine/"
+chmod +x "$DEST/공유회-OS/engine/build-deck.sh" "$DEST/공유회-OS/engine/deploy.sh"
 
 # ── 2) webdeck 덱 엔진 (항상 원본에서, 무수정)
 echo "webdeck 엔진 내려받는 중…"

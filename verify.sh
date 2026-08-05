@@ -11,7 +11,8 @@ echo "[1] 필수 파일"
 for f in SKILL.md install.sh README.md \
          references/types.md references/titles.md references/interview.md \
          references/timeline.md references/script.md references/themes.md \
-         engine/share-extend.css engine/share-extend.js; do
+         engine/share-extend.css engine/share-extend.js \
+         engine/build-deck.sh engine/deploy.sh; do
   [ -f "$f" ] && ok "$f" || err "$f 없음"
 done
 
