@@ -37,6 +37,16 @@ for b in "$PKG"/bundled/*/SKILL.md; do
   [ -f "$b" ] && mv "$b" "$(dirname "$b")/INSTRUCTIONS.md"
 done
 
+# claude.ai는 스킬 name(=루트 디렉토리명)도 영숫자·밑줄·하이픈만 허용한다.
+# frontmatter의 한글 name(공유회-OS) → ASCII 슬러그. (트리거는 description에 있어 호출엔 영향 없음)
+python3 - "$PKG/SKILL.md" <<'PY'
+import sys, re
+p = sys.argv[1]
+t = open(p, encoding='utf-8').read()
+t = re.sub(r'(?m)^name:\s*.*$', 'name: gongyuhoe-os', t, count=1)
+open(p, 'w', encoding='utf-8').write(t)
+PY
+
 echo "4/5  업로드 안내 파일…"
 cat > "$PKG/UPLOAD-README.txt" <<'TXT'
 공유회-OS — claude.ai 업로드용 패키지 (skillers-share)
@@ -66,6 +76,11 @@ fi
 NSKILL="$(cd "$DIST" && find skillers-share -name SKILL.md | wc -l | tr -d ' ')"
 if [ "$NSKILL" != "1" ]; then
   echo "✗ SKILL.md 가 $NSKILL 개입니다 — 정확히 1개여야 업로드됩니다."; exit 1
+fi
+# 스킬 name 이 영숫자·밑줄·하이픈만인지 (claude.ai 루트 디렉토리명 규칙)
+NAMELINE="$(grep -m1 '^name:' "$PKG/SKILL.md" | sed 's/^name:[[:space:]]*//')"
+if ! printf '%s' "$NAMELINE" | LC_ALL=C grep -qE '^[A-Za-z0-9_-]+$'; then
+  echo "✗ 스킬 name '$NAMELINE' 에 허용 안 되는 문자가 있습니다 (영숫자·_·- 만)."; exit 1
 fi
 ( cd "$DIST" && rm -f "$(basename "$ZIP")" && zip -qr "$(basename "$ZIP")" "skillers-share" )
 rm -rf "$TMP"
