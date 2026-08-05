@@ -21,7 +21,7 @@ description: 스폰지클럽 이기적 공유회(1시간) 발표를 주제 선�
 > 3. **완성 덱은 인터넷 링크 대신 자체완결 HTML 파일로 만들어 내려받게** 준다(환경이 지원하면 Artifact로 띄운다). 표지 시안용 headless-chrome 캡처가 안 되면 표지는 덱 안에서 직접 렌더한다.
 > 4. 덱 빌드 스크립트(bash/python)조차 못 도는 환경이면, 최소한 **목차 + 발표 대본 + `brief.json` 을 텍스트로** 완성해 건네고 그 사실을 말한다.
 >
-> **부르는 스킬**(훅카피·크리틱디렉터·spec-guard)은 터미널에선 형제 스킬로 호출한다. claude.ai 업로드 패키지에선 이 폴더의 `bundled/` 안에 함께 들어있으니(`bundled/hookcopy`=훅카피, `bundled/critic-director`=크리틱디렉터, `bundled/spec-guard`), 별도 스킬 호출이 안 되면 그 폴더의 `SKILL.md` 를 직접 읽어 규칙을 적용한다.
+> **부르는 스킬**(훅카피·크리틱디렉터·spec-guard)은 터미널에선 형제 스킬로 호출한다. claude.ai 업로드 패키지에선 이 폴더의 `bundled/` 안에 함께 들어있으니(`bundled/hookcopy`=훅카피, `bundled/critic-director`=크리틱디렉터, `bundled/spec-guard`), 별도 스킬 호출이 안 되면 그 폴더의 **`INSTRUCTIONS.md`** 를 직접 읽어 규칙을 적용한다. (claude.ai는 zip에 SKILL.md가 1개만 허용돼서, 번들 스킬의 진입 파일은 `INSTRUCTIONS.md` 로 담긴다.)
 >
 > **못 하는 걸 되는 척하지 않는다.** 스캔·자동배포가 빠지는 환경이면 그 사실을 먼저 밝히고, 할 수 있는 최대치로 끝까지 간다.
 

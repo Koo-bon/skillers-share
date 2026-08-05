@@ -31,6 +31,12 @@ echo "3/5  경로 ASCII화 (claude.ai 요구)…"
 [ -d "$PKG/bundled/크리틱디렉터" ] && mv "$PKG/bundled/크리틱디렉터" "$PKG/bundled/critic-director"
 # (spec-guard 는 이미 ASCII)
 
+# claude.ai는 zip에 SKILL.md가 '정확히 1개'만 있어야 한다. 번들 스킬의 SKILL.md → INSTRUCTIONS.md 로 바꿔
+# 메인(skillers-share/SKILL.md) 하나만 남긴다. (메인 SKILL.md가 INSTRUCTIONS.md 를 읽도록 안내해 둠)
+for b in "$PKG"/bundled/*/SKILL.md; do
+  [ -f "$b" ] && mv "$b" "$(dirname "$b")/INSTRUCTIONS.md"
+done
+
 echo "4/5  업로드 안내 파일…"
 cat > "$PKG/UPLOAD-README.txt" <<'TXT'
 공유회-OS — claude.ai 업로드용 패키지 (skillers-share)
@@ -55,6 +61,11 @@ echo "5/5  경로 무결성 검사 + zip…"
 BADPATHS="$(cd "$DIST" && find skillers-share | LC_ALL=C grep -nP '[^\x00-\x7F]' || true)"
 if [ -n "$BADPATHS" ]; then
   echo "✗ 아직 한글(비ASCII) 경로가 남아 있습니다 — 업로드가 거부됩니다:"; echo "$BADPATHS"; exit 1
+fi
+# SKILL.md 는 '정확히 1개'여야 한다 (claude.ai 규칙)
+NSKILL="$(cd "$DIST" && find skillers-share -name SKILL.md | wc -l | tr -d ' ')"
+if [ "$NSKILL" != "1" ]; then
+  echo "✗ SKILL.md 가 $NSKILL 개입니다 — 정확히 1개여야 업로드됩니다."; exit 1
 fi
 ( cd "$DIST" && rm -f "$(basename "$ZIP")" && zip -qr "$(basename "$ZIP")" "skillers-share" )
 rm -rf "$TMP"
