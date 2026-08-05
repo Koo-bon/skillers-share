@@ -100,5 +100,7 @@ echo "설치 완료: $DEST"
 echo
 echo "Claude Code(터미널)에서 부르세요:  공유회 준비해줘"
 echo "  ※ 터미널이 가장 완전 (기록 자동 스캔·인터넷 배포까지)"
-echo "  ※ claude.ai 웹·앱에서도 쓰려면:  bash make-cloud-package.sh  →  나온 zip을 claude.ai에 업로드"
+echo "  ※ claude.ai 웹·앱·폰에서도 쓰려면(업로드 1회, 채팅 링크 설치는 claude.ai가 지원 안 함):"
+echo "     릴리스 zip 받기 → 설정→사용자 지정→스킬→추가→스킬 업로드에 드래그"
+echo "     https://github.com/Koo-bon/skillers-share/releases/latest/download/skillers-share-claude-ai.zip"
 echo "나중에 최신으로 올리려면:    bash install.sh --force"

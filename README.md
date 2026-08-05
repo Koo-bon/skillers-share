@@ -35,8 +35,20 @@ for c in git curl tar python3; do command -v $c >/dev/null && echo "OK  $c" || e
 - 나머지가 없으면 → 흔한 경우가 아닙니다. 채널에 물어보세요
 - **터미널을 처음 여신다면** → `Command + 스페이스` 누르고 `터미널` 입력
 
-### 설치
+### 설치 — 셋 중 편한 걸로
 
+**① 제일 쉬움 — Claude Code에 링크 붙여넣고 "이거 설치해줘"**
+터미널의 Claude Code(또는 클로드 데스크톱 앱의 Code)에 아래 한 줄을 붙여넣고 "이거 설치해줘" 하면, 클로드가 알아서 받아서 깔아줍니다.
+```
+https://github.com/Koo-bon/skillers-share
+```
+
+**② 한 줄 명령 (클로드 없이)**
+```bash
+curl -fsSL https://raw.githubusercontent.com/Koo-bon/skillers-share/main/install.sh | bash
+```
+
+**③ 직접 clone**
 ```bash
 git clone https://github.com/Koo-bon/skillers-share.git
 cd skillers-share && bash install.sh
