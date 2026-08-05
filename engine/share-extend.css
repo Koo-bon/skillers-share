@@ -110,7 +110,8 @@ html[data-sd-theme="dark-tech"], body[data-sd-theme="dark-tech"] {
   font-family: var(--sd-font-head);
   font-size: var(--sd-h-cover);
   font-weight: 800;
-  line-height: .88;
+  /* 한글 볼드는 받침이 베이스라인 아래로 내려온다. .88 로 조이면 두 줄이 겹친다 */
+  line-height: .96;
   letter-spacing: -.045em;
   text-align: left;
   max-width: none;
