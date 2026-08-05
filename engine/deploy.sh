@@ -76,7 +76,7 @@ if gh repo view "$USER/$SAFE" >/dev/null 2>&1; then
   git push -q -u origin main --force
 else
   echo "· 저장소를 새로 만듭니다"
-  gh repo create "$SAFE" --public --source=. --push -q
+  gh repo create "$SAFE" --public --source=. --push
 fi
 
 # ── Pages 켜기 (이미 켜져 있으면 조용히 넘어감)
